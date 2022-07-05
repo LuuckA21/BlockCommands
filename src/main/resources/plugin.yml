@@ -1,0 +1,13 @@
+name: BlockCommands
+version: '${project.version}'
+main: me.luucka.blockcommands.BlockCommandsPlugin
+api-version: 1.19
+authors: [ LuuckA ]
+description: Block commands
+commands:
+  blockcommands:
+    description: Reload plugin
+    aliases:
+      - bcmd
+libraries:
+  - org.spongepowered:configurate-yaml:${libs.configurate-yaml}
