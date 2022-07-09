@@ -23,8 +23,6 @@ public class PlayerListeners implements Listener {
         final String command = event.getMessage();
 
         final Set<CommandToBlock> commandToBlocks = plugin.getSettings().getCommandsToBlock();
-        // Command to block (cmd):      /gmenu menu animated_hats
-        // Command written (command):   /gmenu menu animated_hats 1
         Optional<CommandToBlock> optional = commandToBlocks.stream().filter(cmd -> command.startsWith(cmd.command())).findAny();
 
         if (optional.isPresent()) {
