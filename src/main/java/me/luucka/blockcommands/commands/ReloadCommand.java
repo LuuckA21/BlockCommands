@@ -16,7 +16,7 @@ public class ReloadCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (!sender.hasPermission("blockcommands.admin")) {
-            sender.sendMessage(MiniMessage.miniMessage().deserialize("<aqua>HideCommands <red>You do not have permission!"));
+            sender.sendMessage(MiniMessage.miniMessage().deserialize("<aqua>BlockCommands <red>You do not have permission!"));
             return true;
         }
         plugin.getSettings().reloadConfig();

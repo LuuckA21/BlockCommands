@@ -17,9 +17,4 @@ public final class BlockCommandsPlugin extends JavaPlugin {
         getCommand("blockcommands").setExecutor(new ReloadCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
     }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
 }

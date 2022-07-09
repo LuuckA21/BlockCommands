@@ -9,10 +9,11 @@ import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,20 +50,7 @@ public final class BaseConfiguration {
         return configurationNode;
     }
 
-    public Set<String> getKeys(final String path) {
-        final CommentedConfigurationNode configurationNode = getSection(path);
-        if (configurationNode == null || !configurationNode.isMap()) {
-            return Collections.emptySet();
-        }
-
-        final Set<String> keys = new LinkedHashSet<>();
-        for (Object obj : configurationNode.childrenMap().keySet()) {
-            keys.add(String.valueOf(obj));
-        }
-        return keys;
-    }
-
-//    ----- String -----
+//    ----- String -----------------------------------------------------------------------------------------------------
 
     public void setProperty(final String path, final String value) {
         setInternal(path, value);
@@ -74,16 +62,7 @@ public final class BaseConfiguration {
         return node.getString();
     }
 
-//    ----- Raw -----
-
-    public void setRaw(final String path, final Object value) {
-        setInternal(path, value);
-    }
-
-    public Object get(final String path) {
-        final CommentedConfigurationNode node = getInternal(path);
-        return node == null ? null : node.raw();
-    }
+//    ----- Section ----------------------------------------------------------------------------------------------------
 
     public CommentedConfigurationNode getSection(final String path) {
         final CommentedConfigurationNode node = toSplitRoot(path, configurationNode);
@@ -93,6 +72,21 @@ public final class BaseConfiguration {
 
     public CommentedConfigurationNode newSection() {
         return loader.createNode();
+    }
+
+//    ----- Utility ----------------------------------------------------------------------------------------------------
+
+    public Set<String> getKeys(final String path) {
+        final CommentedConfigurationNode configurationNode = getSection(path);
+        if (configurationNode == null || !configurationNode.isMap()) {
+            return Collections.emptySet();
+        }
+
+        final Set<String> keys = new LinkedHashSet<>();
+        for (Object obj : configurationNode.childrenMap().keySet()) {
+            keys.add(String.valueOf(obj));
+        }
+        return keys;
     }
 
     public void removeProperty(String path) {
