@@ -30,11 +30,10 @@ public class Settings {
 
     private void _loadCommandsToBlock() {
         commandsToBlock.clear();
-        final Set<String> keys = config.getKeys("commands");
-        for (final String k : keys) {
-            final String cmd = config.getString("commands." + k + ".command", "");
-            final String perm = config.getString("commands." + k + ".permission", "");
-            final String msg = config.getString("commands." + k + ".message", "");
+        final Set<String> commands = config.getKeys("commands");
+        for (final String cmd : commands) {
+            final String perm = config.getString("commands." + cmd + ".permission", "");
+            final String msg = config.getString("commands." + cmd + ".message", "");
             commandsToBlock.add(new CommandToBlock(cmd, perm, msg));
         }
     }

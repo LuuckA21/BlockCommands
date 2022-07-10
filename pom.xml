@@ -6,7 +6,7 @@
 
     <groupId>me.luucka</groupId>
     <artifactId>BlockCommands</artifactId>
-    <version>Build-3</version>
+    <version>Build-4</version>
     <packaging>jar</packaging>
 
     <name>BlockCommands</name>

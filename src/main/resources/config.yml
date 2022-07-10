@@ -1,5 +1,4 @@
 commands:
-  "0":
-    command: "/cmd"
+  "/cmd":
     permission: "cmd.cmd"
     message: "message"
