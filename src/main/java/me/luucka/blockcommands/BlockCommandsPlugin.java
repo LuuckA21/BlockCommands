@@ -13,8 +13,8 @@ public final class BlockCommandsPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.settings = new Settings(this);
-        getCommand("blockcommands").setExecutor(new ReloadCommand(this));
-        getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
+        settings = new Settings(this);
+        getCommand("blockcommands").setExecutor(new ReloadCommand(settings));
+        getServer().getPluginManager().registerEvents(new PlayerListeners(settings), this);
     }
 }

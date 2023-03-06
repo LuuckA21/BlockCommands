@@ -7,7 +7,6 @@ description: Block commands
 commands:
   blockcommands:
     description: Reload plugin
-    aliases:
-      - bcmd
+    permission: blockcommands.admin
 libraries:
   - org.spongepowered:configurate-yaml:${libs.configurate-yaml}
