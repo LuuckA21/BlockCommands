@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 public final class BaseConfiguration {
 
-    private static final Logger LOGGER = Logger.getLogger("Parkour");
+    private static final Logger LOGGER = Logger.getLogger("BlockCommands");
 
     private Class<?> resourceClass = BaseConfiguration.class;
     private final File configFile;
@@ -154,7 +154,7 @@ public final class BaseConfiguration {
             }
             LOGGER.log(Level.SEVERE, "The file " + configFile + " is broken. A backup file has failed to be created", e.getCause());
         } catch (final ConfigurateException e) {
-            LOGGER.log(Level.SEVERE, e.getMessage(), e);;
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
         } finally {
             if (configurationNode == null) {
                 configurationNode = loader.createNode();

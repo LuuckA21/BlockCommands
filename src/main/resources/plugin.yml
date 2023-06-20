@@ -1,7 +1,7 @@
 name: BlockCommands
 version: '${project.version}'
 main: me.luucka.blockcommands.BlockCommandsPlugin
-api-version: 1.19
+api-version: '1.20'
 authors: [ LuuckA ]
 description: Block commands
 commands:
